@@ -1,9 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import NewInterviewWorkbook from './CareerEngineer_interview_new_workbook';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <NewInterviewWorkbook />
-  </React.StrictMode>
-);
+    <App />
+  </React.StrictMode>,
+)
