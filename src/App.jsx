@@ -22,8 +22,7 @@ const RADIUS = { sm: 6, base: 10, md: 14, pill: 999 };
 // ════════════════════════════════════════════════════════════════
 //  CareerEngineer 워크북 라이브러리 (URL은 나중에 일괄 적용)
 // ════════════════════════════════════════════════════════════════
-const WORKBOOK_LINKS = {
-  roadmap:            { label: 'STEP 0 · 취업준비 진단', url: 'https://www.latpeed.com/products/nDbq9' },
+const WORKBOOK_LINKS = { career_roadmap: { label: 'STEP 0 · 취업준비 진단', url: 'https://www.latpeed.com/products/nDbq9' },
   job_analysis:       { label: 'STEP 1 · 채용공고 및 직무 분석', url: 'https://www.latpeed.com/products/-3Wgm' },
   experience:         { label: 'STEP 2 · 경험 정리', url: 'https://www.latpeed.com/products/wDSaj' },
   motivation:         { label: 'STEP 4 · 지원동기 작성', url: 'https://www.latpeed.com/products/dfdMW' },
@@ -1092,13 +1091,13 @@ const QUESTIONS = [
 const FirstVisitModal = ({ open, onClose }) => {
   if (!open) return null;
   return (
-    <div style={{ position: 'fixed', inset: 0, background: 'rgba(11, 23, 51, 0.4)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }} onClick={onClose}>
-      <div style={{ background: '#fff', borderRadius: 14, padding: 32, maxWidth: 480, width: '100%', boxShadow: '0 20px 50px rgba(11, 23, 51,0.2)' }} onClick={e => e.stopPropagation()}>
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(14, 39, 80, 0.4)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }} onClick={onClose}>
+      <div style={{ background: '#fff', borderRadius: 14, padding: 32, maxWidth: 480, width: '100%', boxShadow: '0 20px 50px rgba(14, 39, 80,0.2)' }} onClick={e => e.stopPropagation()}>
         <h3 style={{ fontSize: 17, fontWeight: 700, color: '#0E2750', margin: 0, marginBottom: 16 }}>신입 면접 워크북 사용 안내</h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 24 }}>
           <div style={{ display: 'flex', gap: 8, fontSize: 16, color: '#0E2750', lineHeight: 1.7 }}>
             <span style={{ color: '#C9A86A', fontWeight: 700, minWidth: 20 }}>1.</span>
-            <span><strong>24개 질문</strong>을 순서대로 진행하세요. [필수] 표시 문항부터 완성하면 좋습니다.</span>
+            <span><strong>24개 질문</strong> 중 가장 답변하기 어려운 문항부터 시작하세요. 어려운 답변에 시간을 충분히 쓰면 면접 전체 완성도가 높아집니다.</span>
           </div>
           <div style={{ display: 'flex', gap: 8, fontSize: 16, color: '#0E2750', lineHeight: 1.7 }}>
             <span style={{ color: '#C9A86A', fontWeight: 700, minWidth: 20 }}>2.</span>
@@ -1106,7 +1105,7 @@ const FirstVisitModal = ({ open, onClose }) => {
           </div>
           <div style={{ display: 'flex', gap: 8, fontSize: 16, color: '#0E2750', lineHeight: 1.7 }}>
             <span style={{ color: '#C9A86A', fontWeight: 700, minWidth: 20 }}>3.</span>
-            <span>Step 2 세부 질문은 브레인스토밍용입니다. 모든 칸을 채우지 못해도 됩니다.</span>
+            <span>PART 2 세부 질문은 브레인스토밍용입니다. 모든 칸을 채우지 못해도 됩니다.</span>
           </div>
           <div style={{ display: 'flex', gap: 8, fontSize: 16, color: '#0E2750', lineHeight: 1.7 }}>
             <span style={{ color: '#C9A86A', fontWeight: 700, minWidth: 20 }}>4.</span>
@@ -1134,7 +1133,7 @@ const FocusStyles = () => (
   <style>{`
     .ce-input:focus, .ce-textarea:focus {
       border-color: ${COLORS.accent2} !important;
-      box-shadow: 0 0 0 3px rgba(182, 117, 74, 0.12) !important;
+      box-shadow: 0 0 0 3px rgba(201, 168, 106, 0.12) !important;
     }
     .ce-save-btn:hover { opacity: 0.88; }
   `}</style>
@@ -1207,7 +1206,7 @@ const NewInterviewWorkbook = () => {
     
     // 7단계 구조 - 자소서 5대 항목만 하위 항목 펼침, 나머지는 단일 링크
     const stepGroups = [
-      { step: '0', label: '취업준비 진단', key: 'roadmap' },
+      { step: '0', label: '취업준비 진단', key: 'career_roadmap' },
       { step: '1', label: '채용공고 및 직무 분석', key: 'job_analysis' },
       { step: '2', label: '경험 정리', key: 'experience' },
       { step: '3', inline: true, label: '', items: [
@@ -1522,7 +1521,7 @@ const NewInterviewWorkbook = () => {
   const S = {
     page: { minHeight: '100vh', background: COLORS.bgAlt, padding: SPACING.md, fontFamily: FONT.family, color: COLORS.accent },
     container: { maxWidth: 900, margin: '0 auto' },
-    headerSticky: { background: COLORS.bgAlt, borderRadius: RADIUS.md, padding: SPACING.md, border: `1px solid ${COLORS.border}`, marginBottom: SPACING.md, position: 'sticky', top: SPACING.md, zIndex: 10, boxShadow: '0 2px 8px rgba(11, 23, 51, 0.12)' },
+    headerSticky: { background: COLORS.bgAlt, borderRadius: RADIUS.md, padding: SPACING.md, border: `1px solid ${COLORS.border}`, marginBottom: SPACING.md, position: 'sticky', top: SPACING.md, zIndex: 10, boxShadow: '0 2px 8px rgba(14, 39, 80, 0.12)' },
     cardLarge: { background: COLORS.bg, borderRadius: RADIUS.md, padding: SPACING.xl, border: `1px solid ${COLORS.border}`, marginBottom: SPACING.md },
     h1Center: { fontSize: FONT.size.h1, fontWeight: FONT.weight.bold, color: COLORS.accent, margin: `0 0 ${SPACING.md}px`, lineHeight: FONT.lineHeight.tight, textAlign: 'center' },
     h2: { fontSize: FONT.size.h2, fontWeight: FONT.weight.bold, color: COLORS.accent, margin: 0, lineHeight: FONT.lineHeight.tight },
@@ -1548,7 +1547,7 @@ const NewInterviewWorkbook = () => {
     copyrightWarn: { fontSize: FONT.size.xs, color: COLORS.red, textAlign: 'center', marginTop: 8, fontWeight: FONT.weight.medium, lineHeight: FONT.lineHeight.base },
   };
   const labelStyle = (color) => ({ fontSize: FONT.size.sm, fontWeight: FONT.weight.semibold, color, margin: 0, letterSpacing: 0.5, textTransform: 'uppercase' });
-  const stepBadge = (n) => ({ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: COLORS.accent2, color: COLORS.white, fontSize: 11, padding: '3px 8px', borderRadius: 4, fontWeight: 700, minWidth: 56, marginRight: 8 });
+  const stepBadge = (n) => ({ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: COLORS.accent2, color: COLORS.white, fontSize: 16, padding: '3px 8px', borderRadius: 4, fontWeight: 700, minWidth: 56, marginRight: 8 });
 
   // ══════════════════ 인트로 ══════════════════
   if (showIntro) return (
@@ -1556,6 +1555,26 @@ const NewInterviewWorkbook = () => {
       <FocusStyles />
       <FirstVisitModal open={showHelp} onClose={() => setShowHelp(false)} />
       <div style={S.container}>
+        <div style={S.headerSticky}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: SPACING.base, flexWrap: 'wrap' }}>
+            <CELockupA height={32} />
+            <div style={{ position: 'relative', flex: 1, display: 'flex', justifyContent: 'center' }}>
+              <button onClick={() => setShowStepNav(v => !v)} style={{ 
+                background: COLORS.bgAlt, border: 'none', cursor: 'pointer',
+                fontSize: FONT.size.sm, color: COLORS.accent, textAlign: 'center',
+                padding: '4px 12px', borderRadius: 4, fontFamily: FONT.family,
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 4,
+              }} title="전체 7단계 보기" className="ce-step-nav-trigger">
+                STEP 5 · 신입 면접 준비
+                <span style={{ fontSize: FONT.size.xs, color: COLORS.accent, opacity: 1, transform: showStepNav ? 'rotate(180deg)' : 'none', transition: 'transform 150ms' }}>▾</span>
+              </button>
+              <StepNavigatorDropdown open={showStepNav} onClose={() => setShowStepNav(false)} currentKey="interview_new" />
+            </div>
+            <button disabled className="ce-save-btn" style={{...S.btnSaveHeader, opacity: 0.4, cursor: 'not-allowed'}} title="작성을 시작하면 활성화됩니다">
+              저장(.doc)
+            </button>
+          </div>
+        </div>
         <div style={S.cardLarge}>
           <div style={{ textAlign: 'center', marginBottom: SPACING.xl, paddingTop: SPACING.md }}>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: SPACING.sm }}><CELockupA height={56} /></div>
@@ -1587,16 +1606,23 @@ const NewInterviewWorkbook = () => {
           </div>
 
           <div style={{ background: COLORS.bg, borderRadius: RADIUS.base, padding: SPACING.lg, border: `1px solid ${COLORS.border}`, marginBottom: SPACING.xl }}>
-            <h3 style={{ ...S.h3, marginBottom: SPACING.md }}>6개 SECTION · 24개 질문</h3>
+            <h3 style={{ ...S.h3, marginBottom: SPACING.md }}>6개 PART · 24개 질문</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: SPACING.sm }}>
               {Object.entries(partGroups).map(([part, qs], i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: SPACING.sm }}>
-                  <span style={{ minWidth: 56, height: 28, borderRadius: 4, background: COLORS.bgAlt, color: COLORS.accent, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, fontWeight: 700 }}>SECTION {i+1}</span>
+                  <span style={{ minWidth: 56, height: 28, borderRadius: 4, background: COLORS.bgAlt, color: COLORS.accent, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, fontWeight: 700 }}>PART {i+1}</span>
                   <span style={{ fontSize: FONT.size.sm, color: COLORS.accent, flex: 1 }}>{part}</span>
                   <span style={{ fontSize: FONT.size.xs, color: COLORS.sub }}>{qs.length}문항</span>
                 </div>
               ))}
             </div>
+          </div>
+
+          <div style={S.boxInfo}>
+            <p style={{ ...labelStyle(COLORS.blue), marginBottom: SPACING.sm }}>INFO · 답변 순서 권장</p>
+            <p style={{ fontSize: FONT.size.sm, color: COLORS.accent, margin: 0, lineHeight: FONT.lineHeight.base }}>
+              <strong>가장 답변하기 어려운 문항부터 시작하세요.</strong> 면접에서 합격을 가르는 답변은 보통 어려운 질문에 대한 답입니다. 어려운 질문에 시간을 충분히 쓰면 면접 전체의 완성도가 높아집니다. 질문 목록 화면에서 원하는 문항부터 클릭해 진입할 수 있습니다.
+            </p>
           </div>
 
           <div style={S.boxTip}>
@@ -1641,6 +1667,26 @@ const NewInterviewWorkbook = () => {
       <div style={S.page}>
         <FocusStyles />
         <div style={S.container}>
+          <div style={S.headerSticky}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: SPACING.base, flexWrap: 'wrap' }}>
+              <CELockupA height={32} />
+              <div style={{ position: 'relative', flex: 1, display: 'flex', justifyContent: 'center' }}>
+                <button onClick={() => setShowStepNav(v => !v)} style={{ 
+                  background: COLORS.bgAlt, border: 'none', cursor: 'pointer',
+                  fontSize: FONT.size.sm, color: COLORS.accent, textAlign: 'center',
+                  padding: '4px 12px', borderRadius: 4, fontFamily: FONT.family,
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 4,
+                }} title="전체 7단계 보기" className="ce-step-nav-trigger">
+                  STEP 5 · 신입 면접 준비
+                  <span style={{ fontSize: FONT.size.xs, color: COLORS.accent, opacity: 1, transform: showStepNav ? 'rotate(180deg)' : 'none', transition: 'transform 150ms' }}>▾</span>
+                </button>
+                <StepNavigatorDropdown open={showStepNav} onClose={() => setShowStepNav(false)} currentKey="interview_new" />
+              </div>
+              <button onClick={savePartial} className="ce-save-btn" style={S.btnSaveHeader}>
+                저장(.doc)
+              </button>
+            </div>
+          </div>
           <div style={S.cardLarge}>
             <div style={{ marginBottom: SPACING.lg }}>
               <p style={S.brandEyebrow}>신입 면접 워크북</p>
@@ -1658,7 +1704,7 @@ const NewInterviewWorkbook = () => {
             {Object.entries(partGroups).map(([part, qs], partIdx) => (
               <div key={part} style={{ marginBottom: SPACING.lg }}>
                 <p style={{ fontSize: FONT.size.sm, fontWeight: FONT.weight.bold, color: COLORS.accent2, margin: 0, marginBottom: SPACING.sm, paddingBottom: 6, borderBottom: `1px solid ${COLORS.border}` }}>
-                  SECTION {partIdx + 1}. {part}
+                  PART {partIdx + 1}. {part}
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: SPACING.sm }}>
                   {qs.map((qq) => {
@@ -1681,14 +1727,14 @@ const NewInterviewWorkbook = () => {
                           fontFamily: FONT.family,
                           transition: 'border-color 150ms, box-shadow 150ms, transform 80ms',
                         }}
-                        onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 2px 8px rgba(11, 23, 51,0.1)'; }}
+                        onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 2px 8px rgba(14, 39, 80,0.1)'; }}
                         onMouseLeave={e => { e.currentTarget.style.boxShadow = 'none'; }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: SPACING.sm, flexWrap: 'wrap' }}>
                           <div style={{ flex: 1, minWidth: 0 }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 3, flexWrap: 'wrap' }}>
                               <span style={{ fontSize: FONT.size.sm, fontWeight: FONT.weight.bold, color: COLORS.accent }}>{qq.label}. {qq.title}</span>
-                              {qq.required && <span style={{ fontSize: 11, padding: '2px 7px', borderRadius: 3, background: COLORS.redBg, color: COLORS.red, fontWeight: 700 }}>필수</span>}
+                              {qq.required && <span style={{ fontSize: 16, padding: '2px 7px', borderRadius: 3, background: COLORS.redBg, color: COLORS.red, fontWeight: 700 }}>필수</span>}
                             </div>
                             <p style={{ fontSize: FONT.size.xs, color: COLORS.sub, margin: 0, lineHeight: FONT.lineHeight.base }}>
                               권장 {qq.meta.time} · {qq.meta.length} · 인성{qq.meta.인성 || '-'} 직무{qq.meta.직무 || '-'} 임원{qq.meta.임원 || '-'}
@@ -1708,7 +1754,8 @@ const NewInterviewWorkbook = () => {
             ))}
 
             <button onClick={() => { setIsCompleted(true); window.scrollTo(0, 0); }} style={{ ...S.btnPrimary, width: '100%', padding: '16px 32px', marginTop: SPACING.md }}>
-              작성 완료하고 다운로드 </button>
+              작성 완료하고 다운로드
+            </button>
           </div>
           <StickyFooter />
         </div>
@@ -1726,6 +1773,26 @@ const NewInterviewWorkbook = () => {
       <div style={S.page}>
         <FocusStyles />
         <div style={S.container}>
+          <div style={S.headerSticky}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: SPACING.base, flexWrap: 'wrap' }}>
+              <CELockupA height={32} />
+              <div style={{ position: 'relative', flex: 1, display: 'flex', justifyContent: 'center' }}>
+                <button onClick={() => setShowStepNav(v => !v)} style={{ 
+                  background: COLORS.bgAlt, border: 'none', cursor: 'pointer',
+                  fontSize: FONT.size.sm, color: COLORS.accent, textAlign: 'center',
+                  padding: '4px 12px', borderRadius: 4, fontFamily: FONT.family,
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 4,
+                }} title="전체 7단계 보기" className="ce-step-nav-trigger">
+                  STEP 5 · 신입 면접 준비
+                  <span style={{ fontSize: FONT.size.xs, color: COLORS.accent, opacity: 1, transform: showStepNav ? 'rotate(180deg)' : 'none', transition: 'transform 150ms' }}>▾</span>
+                </button>
+                <StepNavigatorDropdown open={showStepNav} onClose={() => setShowStepNav(false)} currentKey="interview_new" />
+              </div>
+              <button onClick={savePartial} className="ce-save-btn" style={S.btnSaveHeader}>
+                저장(.doc)
+              </button>
+            </div>
+          </div>
           <div style={S.cardLarge}>
             <div style={{ textAlign: 'center', marginBottom: SPACING.xl }}>
               <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 64, height: 64, background: COLORS.greenBg, borderRadius: RADIUS.pill, marginBottom: SPACING.base }}>
@@ -1786,12 +1853,14 @@ const NewInterviewWorkbook = () => {
               <p style={{ fontSize: FONT.size.sm, color: COLORS.accent, margin: 0, lineHeight: FONT.lineHeight.base }}>모의 면접으로 실전 감각을 키우고 싶다면 CareerEngineer <a href="https://www.latpeed.com/products/tZ5xw" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.accent2, fontWeight: FONT.weight.semibold, textDecoration: 'underline' }}>면접 멘토링</a> 프로그램으로 1:1 실전 연습을 경험하세요.</p>
             </div>
 
-            <button onClick={downloadFinal} style={{ ...S.btnPrimary, width: '100%', padding: '18px 32px', fontSize: FONT.size.lg, marginTop: SPACING.md }}>
-              전체 답변 다운로드 (.doc)
-            </button>
-            <button onClick={() => { setIsCompleted(false); setShowList(true); }} style={{ ...S.btnSecondary, width: '100%', marginTop: SPACING.sm, justifyContent: 'center' }}>
-              이전
-            </button>
+            <div style={{ display: 'flex', gap: SPACING.sm, marginTop: SPACING.md }}>
+              <button onClick={() => { setIsCompleted(false); setShowList(true); window.scrollTo(0,0); }} style={S.btnSecondary}>
+                이전
+              </button>
+              <button onClick={downloadFinal} style={{ ...S.btnPrimary, flex: 1, padding: '18px 32px', fontSize: FONT.size.lg }}>
+                전체 답변 다운로드 (.doc)
+              </button>
+            </div>
 
             {downloadSuccess && <p style={{ fontSize: FONT.size.sm, color: COLORS.green, textAlign: 'center', marginTop: SPACING.md, fontWeight: FONT.weight.semibold }}>✓ 다운로드 완료</p>}
 
@@ -1840,7 +1909,7 @@ const NewInterviewWorkbook = () => {
 
         {downloadSuccess && <div style={{ ...S.boxSuccess, marginBottom: SPACING.md, textAlign: 'center' }}><p style={{ fontSize: FONT.size.sm, color: COLORS.green, fontWeight: FONT.weight.semibold, margin: 0 }}>✓ 임시저장 완료</p></div>}
 
-        {/* ═══ SECTION 탭 인디케이터 (가이드 PART 7-6) ═══ */}
+        {/* ═══ PART 탭 인디케이터 (가이드 PART 7-6) ═══ */}
         <div style={{ marginBottom: SPACING.md }}>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 6, flexWrap: 'wrap' }}>
             {Object.entries(partGroups).map(([part, qs], partIdx) => {
@@ -1867,7 +1936,7 @@ const NewInterviewWorkbook = () => {
         <div style={S.cardLarge}>
           {/* Q 헤더 */}
           <div style={{ marginBottom: SPACING.lg }}>
-            <p style={{ fontSize: FONT.size.xs, color: COLORS.accent2, fontWeight: FONT.weight.semibold, margin: 0, marginBottom: 6, letterSpacing: 0.3 }}>SECTION. {q.part}</p>
+            <p style={{ fontSize: FONT.size.xs, color: COLORS.accent2, fontWeight: FONT.weight.semibold, margin: 0, marginBottom: 6, letterSpacing: 0.3 }}>PART. {q.part}</p>
             <div style={{ display: 'flex', alignItems: 'center', gap: SPACING.sm, marginBottom: SPACING.sm, flexWrap: 'wrap' }}>
               <span style={{ fontSize: FONT.size.xl, fontWeight: FONT.weight.bold, color: COLORS.accent2 }}>{q.label}.</span>
               <h2 style={{ ...S.h2, flex: 1 }}>{q.title}</h2>
